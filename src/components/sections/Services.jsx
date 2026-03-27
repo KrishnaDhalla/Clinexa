@@ -18,11 +18,11 @@ export default function Services() {
                 {/* Left accent */}
                 <div className="absolute left-0 top-0 w-1 h-full bg-teal scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300 rounded-r" />
 
-                <div className="w-16 h-16 mb-5 rounded-xl bg-teal/8 flex items-center justify-center group-hover:bg-teal/15 transition-colors">
+                <div className="w-20 h-20 mb-5 rounded-xl bg-teal/8 flex items-center justify-center group-hover:bg-teal/15 transition-colors">
                   <img
                     src={svc.icon}
                     alt={svc.title}
-                    className="w-10 h-10 object-contain"
+                    className="w-14 h-14 object-contain"
                   />
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-3">{svc.title}</h3>

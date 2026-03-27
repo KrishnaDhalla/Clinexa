@@ -14,8 +14,8 @@ export default function WhyUs() {
           {siteData.whyUs.map((item, i) => (
             <StaggerChild key={i}>
               <div className="flex gap-5 p-6 rounded-2xl hover:bg-surface/60 transition-colors duration-200 group">
-                <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-teal/8 flex items-center justify-center group-hover:bg-teal/15 transition-colors">
-                  <img src={item.icon} alt={item.title} className="w-10 h-10 object-contain" />
+                <div className="flex-shrink-0 w-20 h-20 rounded-xl bg-teal/8 flex items-center justify-center group-hover:bg-teal/15 transition-colors">
+                  <img src={item.icon} alt={item.title} className="w-14 h-14 object-contain" />
                 </div>
                 <div>
                   <h3 className="font-bold text-navy mb-1">{item.title}</h3>

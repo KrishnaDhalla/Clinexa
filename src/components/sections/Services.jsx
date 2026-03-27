@@ -23,6 +23,7 @@ export default function Services() {
                     src={svc.icon}
                     alt={svc.title}
                     className="w-14 h-14 object-contain"
+                    loading="lazy"
                   />
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-3">{svc.title}</h3>

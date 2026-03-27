@@ -29,7 +29,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             {/* Show logo without invert filter — transparent-bg logo needed for full white effect */}
-            <img src="/assets/logo.png" alt="Clinexa" className="h-10 mb-4 opacity-90" />
+            <img src="/assets/logo.png" alt="Clinexa" className="h-10 mb-4 opacity-90" loading="lazy" />
             <p className="text-sm leading-relaxed mb-5">{d.tagline}</p>
             <div className="flex gap-3">
               {socialLinks.map(({ icon: Icon, label, href }) => (

@@ -49,6 +49,7 @@ export default function Testimonials() {
                   src={items[active].avatar}
                   alt={items[active].name}
                   className="w-14 h-14 rounded-full mx-auto mb-3 object-cover object-top border-2 border-teal/20"
+                  loading="lazy"
                 />
                 <div className="font-bold text-navy">{items[active].name}</div>
                 <div className="text-sm text-text-sub">{items[active].role}</div>

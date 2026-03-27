@@ -53,6 +53,7 @@ export default function BeforeAfter() {
               alt="After Clinexa — professional doctor website"
               className="absolute inset-0 w-full h-full object-cover object-left-top"
               draggable={false}
+              loading="lazy"
             />
 
             {/* Before (clipped) */}
@@ -66,6 +67,7 @@ export default function BeforeAfter() {
                 className="w-full h-full object-cover object-left-top"
                 style={{ width: `${containerRef.current?.offsetWidth || 1000}px`, maxWidth: "none" }}
                 draggable={false}
+                loading="lazy"
               />
             </div>
 

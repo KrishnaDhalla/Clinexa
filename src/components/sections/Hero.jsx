@@ -2,7 +2,103 @@ import { motion } from "framer-motion";
 import { Button } from "../ui/Components";
 import { useTypingEffect } from "../../hooks/useAnimations";
 import siteData from "../../data/siteData";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Search, Star, TrendingUp, Globe } from "lucide-react";
+
+function FloatingCard({ delay, children, className = "" }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay, duration: 0.6, ease: "easeOut" }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function HeroDashboard() {
+  return (
+    <div className="relative flex flex-col gap-4 items-center lg:items-end">
+
+      {/* Google search result card */}
+      <FloatingCard delay={0.5} className="w-full max-w-sm animate-float">
+        <div className="bg-white rounded-2xl p-5 shadow-xl">
+          <div className="flex items-center gap-2 mb-3">
+            <Search size={14} className="text-text-muted" />
+            <span className="text-sm text-text-muted">dentist near me jaipur</span>
+          </div>
+          <div className="border-t border-border pt-3">
+            <div className="text-teal text-sm font-semibold">www.drsharma-dental.in</div>
+            <div className="text-navy font-bold mt-0.5">Dr. Sharma's Dental Clinic — Jaipur</div>
+            <div className="text-text-sub text-xs mt-1 flex items-center gap-1">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => <Star key={i} size={10} className="text-gold fill-gold" />)}
+              </div>
+              <span>4.9 · 127 reviews</span>
+            </div>
+          </div>
+        </div>
+      </FloatingCard>
+
+      {/* Middle row — two small cards side by side */}
+      <div className="flex gap-4 w-full max-w-sm">
+        {/* #1 badge */}
+        <FloatingCard delay={0.8} className="flex-1">
+          <motion.div
+            animate={{ y: [0, -4, 0] }}
+            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+            className="bg-teal rounded-2xl p-4 shadow-lg text-center"
+          >
+            <div className="text-3xl font-bold text-white">#1</div>
+            <div className="text-xs text-white/80">on Google</div>
+          </motion.div>
+        </FloatingCard>
+
+        {/* Patient growth */}
+        <FloatingCard delay={1.0} className="flex-1">
+          <div className="bg-white rounded-2xl p-4 shadow-xl">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-xs font-semibold text-text-sub">Inquiries</span>
+              <TrendingUp size={14} className="text-teal" />
+            </div>
+            <div className="text-2xl font-bold text-navy">3x</div>
+            <div className="text-[10px] text-teal font-medium">↑ in 60 days</div>
+            <div className="flex items-end gap-0.5 mt-2 h-8">
+              {[20, 30, 25, 40, 50, 65, 80, 95].map((h, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ height: 0 }}
+                  animate={{ height: `${h}%` }}
+                  transition={{ delay: 1.4 + i * 0.06, duration: 0.3 }}
+                  className={`flex-1 rounded-sm ${i >= 6 ? "bg-teal" : "bg-teal/25"}`}
+                />
+              ))}
+            </div>
+          </div>
+        </FloatingCard>
+      </div>
+
+      {/* Review snippet */}
+      <FloatingCard delay={1.2} className="w-full max-w-sm animate-float" style={{ animationDelay: "1.5s" }}>
+        <div className="bg-white rounded-2xl p-4 shadow-xl flex items-start gap-3">
+          <div className="flex-shrink-0 w-9 h-9 rounded-full bg-teal/10 flex items-center justify-center">
+            <Globe size={16} className="text-teal" />
+          </div>
+          <div className="min-w-0">
+            <div className="flex gap-0.5 mb-1">
+              {[...Array(5)].map((_, i) => <Star key={i} size={10} className="text-gold fill-gold" />)}
+            </div>
+            <p className="text-xs text-text-sub italic leading-relaxed truncate">
+              "Patients started finding me on Google within a month..."
+            </p>
+            <div className="text-[11px] font-semibold text-navy mt-1">— Dr. Rohan Mehta</div>
+          </div>
+        </div>
+      </FloatingCard>
+    </div>
+  );
+}
 
 export default function Hero() {
   const typed = useTypingEffect(siteData.hero.rotatingTexts, 50, 30, 2500);
@@ -20,10 +116,10 @@ export default function Hero() {
         }}
       />
       {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-navy/50" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full py-20 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full py-16 sm:py-20 lg:py-24">
+        <div className="grid lg:grid-cols-[1fr_380px] gap-12 xl:gap-20 items-center">
 
           {/* Left column — text */}
           <div>
@@ -43,7 +139,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-[52px] font-bold text-white leading-[1.1] mb-6"
+              className="text-3xl sm:text-5xl lg:text-[52px] font-bold text-white leading-[1.1] mb-6"
             >
               {d.headline}
               <span className="bg-gradient-to-r from-teal via-emerald-300 to-teal bg-clip-text text-transparent animate-shimmer">
@@ -103,45 +199,9 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right column — doctor image with floating stats */}
-          <div className="hidden lg:flex justify-center items-center">
-            <div className="relative">
-              {/* Main doctor image */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7, delay: 0.3 }}
-                className="w-80 h-80 xl:w-[380px] xl:h-[420px] rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(0,180,160,0.15)]"
-              >
-                <img
-                  src="/assets/doctor-1.png"
-                  alt="Healthcare professional"
-                  className="w-full h-full object-cover object-top"
-                />
-              </motion.div>
-
-              {/* Floating stat — bottom left */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.9 }}
-                className="absolute -bottom-5 -left-10 bg-white rounded-2xl px-5 py-3 shadow-xl"
-              >
-                <div className="text-2xl font-bold text-navy">50+</div>
-                <div className="text-xs text-text-sub">Doctors Onboarded</div>
-              </motion.div>
-
-              {/* Floating stat — top right */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.1 }}
-                className="absolute -top-5 -right-8 bg-teal rounded-2xl px-5 py-3 shadow-xl"
-              >
-                <div className="text-2xl font-bold text-white">#1</div>
-                <div className="text-xs text-white/80">Google Rankings</div>
-              </motion.div>
-            </div>
+          {/* Right column — floating dashboard (visible on mobile too, simplified) */}
+          <div className="hidden sm:block">
+            <HeroDashboard />
           </div>
 
         </div>

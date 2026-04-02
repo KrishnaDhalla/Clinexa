@@ -251,6 +251,22 @@ const siteData = {
     },
   ],
 
+  clientMarquee: {
+    eyebrow: "Trusted Network",
+    title: "Our Team Has Worked With",
+    companies: [
+      { name: "PwC", logo: "/assets/logos/pricewaterhousecoopers-pwc-logo-png_seeklogo-619359.png" },
+      { name: "KPMG", logo: "/assets/logos/kpmg-logo.png" },
+      { name: "TCS", logo: "/assets/logos/Tata_Consultancy_Services_old_logo.svg.png" },
+      { name: "Deloitte", logo: "/assets/logos/DeloitteNewLogo.png" },
+      { name: "Infosys", logo: "/assets/logos/Infosys_logo.svg.png" },
+      { name: "Wipro", logo: "/assets/logos/Wipro_Primary_Logo_Color_RGB.svg.png" },
+      { name: "Accenture", logo: "/assets/logos/Accenture-logo-no-background.png" },
+      { name: "EY", logo: "/assets/logos/EY_logo_2019.svg.png" },
+      { name: "Cognizant", logo: "/assets/logos/Cognizant-Logo-2018.png" },
+    ],
+  },
+
   specialties: [
     "Dentist",
     "Dermatologist",

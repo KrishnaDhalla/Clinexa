@@ -2,6 +2,7 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Hero from "./components/sections/Hero";
 import TrustBar from "./components/sections/TrustBar";
+import ClientMarquee from "./components/sections/ClientMarquee";
 import Problem from "./components/sections/Problem";
 import Services from "./components/sections/Services";
 import HowItWorks from "./components/sections/HowItWorks";
@@ -20,6 +21,7 @@ export default function App() {
       <main>
         <Hero />
         <TrustBar />
+        <ClientMarquee />
         <Problem />
         <Services />
         <HowItWorks />
